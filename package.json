@@ -1,0 +1,16 @@
+{
+  "name": "sophie-2026-landing",
+  "version": "1.0.0",
+  "description": "Landing page for Sophie's New Year 2026 gifts",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["landing-page", "new-year", "gifts"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
+

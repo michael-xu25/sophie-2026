@@ -1,0 +1,426 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pink-primary: #FF69B4;
+    --pink-light: #FFB6C1;
+    --pink-lighter: #FFE4E1;
+    --pink-dark: #FF1493;
+    --rose: #FF91A4;
+    --coral: #FF7F7F;
+    --peach: #FFDAB9;
+    --lavender: #E6E6FA;
+    --white: #FFFFFF;
+    --cream: #FFF8DC;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--pink-lighter) 0%, var(--lavender) 50%, var(--peach) 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--pink-primary);
+    animation: confetti-fall linear forwards;
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.header {
+    text-align: center;
+    padding: 2rem 0;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.hello-kitty {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: bounce 2s infinite;
+    display: inline-block;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.title {
+    font-family: 'Comfortaa', cursive;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--pink-dark);
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
+    background: linear-gradient(135deg, var(--pink-dark), var(--rose), var(--coral));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subtitle {
+    font-family: 'Comfortaa', cursive;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--rose);
+    margin-top: 0.5rem;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.main-content {
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gift-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.gift-card {
+    background: linear-gradient(135deg, var(--white) 0%, var(--pink-lighter) 100%);
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 3px solid var(--pink-light);
+    position: relative;
+    overflow: hidden;
+}
+
+.gift-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.gift-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(255, 105, 180, 0.4);
+}
+
+.gift-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.gift-card h3 {
+    font-family: 'Comfortaa', cursive;
+    font-size: 1.8rem;
+    color: var(--pink-dark);
+    margin-bottom: 0.5rem;
+}
+
+.gift-card p {
+    color: var(--rose);
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+.theme-section {
+    margin: 4rem 0;
+}
+
+.theme-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.theme-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--white);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.15);
+    transition: all 0.3s ease;
+    border: 2px solid var(--pink-light);
+}
+
+.theme-item:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.3);
+    background: linear-gradient(135deg, var(--pink-lighter), var(--white));
+}
+
+.theme-icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    animation: wiggle 2s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-5deg);
+    }
+    75% {
+        transform: rotate(5deg);
+    }
+}
+
+.theme-item p {
+    color: var(--pink-dark);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.message-section {
+    margin: 4rem 0;
+}
+
+.message-box {
+    background: linear-gradient(135deg, var(--pink-light), var(--rose), var(--coral));
+    border-radius: 25px;
+    padding: 3rem;
+    box-shadow: 0 10px 40px rgba(255, 105, 180, 0.3);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.message-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+.message-text {
+    font-size: 1.3rem;
+    color: var(--white);
+    line-height: 1.8;
+    font-weight: 400;
+    position: relative;
+    z-index: 1;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.heart {
+    animation: pulse 1.5s ease-in-out infinite;
+    display: inline-block;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.year-display {
+    text-align: center;
+    margin: 4rem 0;
+}
+
+.year-number {
+    font-family: 'Comfortaa', cursive;
+    font-size: 6rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--pink-dark), var(--rose), var(--coral), var(--pink-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 3px 3px 6px rgba(255, 105, 180, 0.3);
+    margin: 2rem 0;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.5));
+    }
+    to {
+        filter: drop-shadow(0 0 20px rgba(255, 105, 180, 0.8));
+    }
+}
+
+.year-decoration {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    font-size: 2rem;
+    margin-top: 1rem;
+}
+
+.year-decoration span {
+    animation: spin 3s linear infinite;
+}
+
+.year-decoration span:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.year-decoration span:nth-child(3) {
+    animation-delay: 1s;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.2);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+.footer {
+    text-align: center;
+    padding: 2rem 0;
+    color: var(--rose);
+    font-weight: 300;
+    font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1.5rem;
+    }
+    
+    .year-number {
+        font-size: 4rem;
+    }
+    
+    .message-text {
+        font-size: 1.1rem;
+    }
+    
+    .gift-card {
+        padding: 2rem;
+    }
+    
+    .theme-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .title {
+        font-size: 2rem;
+    }
+    
+    .year-number {
+        font-size: 3rem;
+    }
+    
+    .theme-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
