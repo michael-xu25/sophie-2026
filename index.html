@@ -14,56 +14,92 @@
     
     <div class="container">
         <header class="header">
-            <div class="hello-kitty">
-                <img src="https://upload.wikimedia.org/wikipedia/en/0/05/Hello_kitty_character_portrait.png" alt="Hello Kitty" class="hello-kitty-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/120/FFB6C1/FFFFFF?text=Hello+Kitty'">
+            <div class="header-content">
+                <div class="header-left">
+                    <div class="hello-kitty">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/0/05/Hello_kitty_character_portrait.png" alt="Hello Kitty" class="hello-kitty-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/120/FFB6C1/FFFFFF?text=Hello+Kitty'">
+                    </div>
+                    <div class="header-text">
+                        <h1 class="title">Happy New Year 2026!</h1>
+                        <h2 class="subtitle">Dear Sophie 💕</h2>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <img src="images/8b66e63c8ebc2b3887929cf3faea17db.JPG" alt="Sophie" class="main-photo">
+                </div>
             </div>
-            <h1 class="title">Happy New Year 2026!</h1>
-            <h2 class="subtitle">Dear Sophie 💕</h2>
         </header>
 
         <main class="main-content">
-            <!-- Photo Gallery Section -->
-            <div class="photo-gallery-section">
+            <!-- Photo Slider Section -->
+            <div class="photo-slider-section">
                 <h2 class="section-title">Memories Together</h2>
-                <div class="photo-gallery">
-                    <div class="photo-item">
-                        <img src="images/photo1.jpg" alt="Friends studying together" class="gallery-img">
-                        <div class="photo-overlay"></div>
-                    </div>
-                    <div class="photo-item">
-                        <img src="images/photo2.jpg" alt="Friends having meal" class="gallery-img">
-                        <div class="photo-overlay"></div>
-                    </div>
-                    <div class="photo-item">
-                        <img src="images/photo3.jpg" alt="Friends playing Mahjong" class="gallery-img">
-                        <div class="photo-overlay"></div>
-                    </div>
-                    <!-- Placeholders for 3-4 more images -->
-                    <div class="photo-item placeholder">
-                        <div class="placeholder-content">
-                            <span class="placeholder-icon">📷</span>
-                            <p>More memories to come!</p>
+                <div class="slider-container">
+                    <button class="slider-btn prev-btn" id="prevBtn">‹</button>
+                    <div class="slider-wrapper">
+                        <div class="slider-track" id="sliderTrack">
+                            <div class="slide">
+                                <img src="images/013a399b8e70ac7e0c196487d6c39b94.JPG" alt="Memory 1" class="slide-img">
+                            </div>
+                            <div class="slide">
+                                <img src="images/1465b902cd69a7f072d2fcd2c4b17dbf.JPG" alt="Memory 2" class="slide-img">
+                            </div>
+                            <div class="slide">
+                                <img src="images/1d9d9f1dd8db533a1d3e9490ce199895.JPG" alt="Memory 3" class="slide-img">
+                            </div>
+                            <div class="slide">
+                                <img src="images/3c55aac4d039fef6dab2357be6121892.JPG" alt="Memory 4" class="slide-img">
+                            </div>
+                            <div class="slide">
+                                <img src="images/4330f5c5cc599f5ef9d0dd97ea41d8df.JPG" alt="Memory 5" class="slide-img">
+                            </div>
+                            <div class="slide">
+                                <img src="images/4b74f927fac48e259ec77efb8d219040.JPG" alt="Memory 6" class="slide-img">
+                            </div>
+                            <div class="slide">
+                                <img src="images/506e85422dedfa14439c8efb896527b8.JPG" alt="Memory 7" class="slide-img">
+                            </div>
+                            <div class="slide">
+                                <img src="images/52e0fb512c309c8ebf493d75133b4e62.JPG" alt="Memory 8" class="slide-img">
+                            </div>
+                            <div class="slide">
+                                <img src="images/62de12d9dbc28d5d25c08d64756b83ef.JPG" alt="Memory 9" class="slide-img">
+                            </div>
+                            <div class="slide">
+                                <img src="images/7aa83f380ee849c7e3cb37b1a96c7274.JPG" alt="Memory 10" class="slide-img">
+                            </div>
+                            <div class="slide">
+                                <img src="images/85129d90ba2e8d45fdf911dfaa41479f.JPG" alt="Memory 11" class="slide-img">
+                            </div>
+                            <div class="slide">
+                                <img src="images/93d14dae467ef57a68594907616bfed8.JPG" alt="Memory 12" class="slide-img">
+                            </div>
+                            <div class="slide">
+                                <img src="images/9682ff103ada1ea641c6f7239e6f8f58.JPG" alt="Memory 13" class="slide-img">
+                            </div>
+                            <div class="slide">
+                                <img src="images/IMG_9103.jpg" alt="Memory 14" class="slide-img">
+                            </div>
+                            <div class="slide">
+                                <img src="images/Screenshot%202026-01-01%20at%202.01.45%20PM.jpg" alt="Memory 15" class="slide-img">
+                            </div>
+                            <div class="slide">
+                                <img src="images/Screenshot%202026-01-01%20at%202.01.53%20PM.jpg" alt="Memory 16" class="slide-img">
+                            </div>
+                            <div class="slide">
+                                <img src="images/a2ba957c35b61df044e20a09f95023e5.JPG" alt="Memory 17" class="slide-img">
+                            </div>
+                            <div class="slide">
+                                <img src="images/db9fbdd14b812433d61b78c2e909c2e8.JPG" alt="Memory 18" class="slide-img">
+                            </div>
+                            <div class="slide">
+                                <img src="images/ff31295645887893ff7a85d72dfde824.JPG" alt="Memory 19" class="slide-img">
+                            </div>
                         </div>
                     </div>
-                    <div class="photo-item placeholder">
-                        <div class="placeholder-content">
-                            <span class="placeholder-icon">📷</span>
-                            <p>More memories to come!</p>
-                        </div>
-                    </div>
-                    <div class="photo-item placeholder">
-                        <div class="placeholder-content">
-                            <span class="placeholder-icon">📷</span>
-                            <p>More memories to come!</p>
-                        </div>
-                    </div>
-                    <div class="photo-item placeholder">
-                        <div class="placeholder-content">
-                            <span class="placeholder-icon">📷</span>
-                            <p>More memories to come!</p>
-                        </div>
-                    </div>
+                    <button class="slider-btn next-btn" id="nextBtn">›</button>
                 </div>
+                <div class="slider-indicators" id="sliderIndicators"></div>
             </div>
 
             <div class="gift-section">
@@ -77,48 +113,6 @@
                     <div class="gift-icon">🧁</div>
                     <h3>Cupcake Plushie</h3>
                     <p>Sending you sweetness and cuddles!</p>
-                </div>
-            </div>
-
-            <!-- Creative Theme Section with Floating Images -->
-            <div class="theme-section">
-                <h2 class="section-title">Things We Love</h2>
-                <div class="theme-container">
-                    <div class="theme-card bubble-tea-card">
-                        <div class="theme-image-wrapper">
-                            <img src="https://cdn-icons-png.flaticon.com/512/3048/3048427.png" alt="Bubble Tea" class="theme-image floating" onerror="this.onerror=null; this.src='https://via.placeholder.com/200/FFB6C1/FFFFFF?text=🧋'">
-                        </div>
-                        <div class="theme-overlay">
-                            <h3>Bubble Tea</h3>
-                        </div>
-                    </div>
-                    
-                    <div class="theme-card cupcake-card">
-                        <div class="theme-image-wrapper">
-                            <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png" alt="Cupcake" class="theme-image floating" onerror="this.onerror=null; this.src='https://via.placeholder.com/200/FFB6C1/FFFFFF?text=🧁'">
-                        </div>
-                        <div class="theme-overlay">
-                            <h3>Cupcakes</h3>
-                        </div>
-                    </div>
-                    
-                    <div class="theme-card beijing-card">
-                        <div class="theme-image-wrapper">
-                            <img src="https://cdn-icons-png.flaticon.com/512/2843/2843746.png" alt="Beijing Lantern" class="theme-image floating" onerror="this.onerror=null; this.src='https://via.placeholder.com/200/FFB6C1/FFFFFF?text=🏮'">
-                        </div>
-                        <div class="theme-overlay">
-                            <h3>Beijing</h3>
-                        </div>
-                    </div>
-                    
-                    <div class="theme-card hello-kitty-card">
-                        <div class="theme-image-wrapper">
-                            <img src="https://upload.wikimedia.org/wikipedia/en/0/05/Hello_kitty_character_portrait.png" alt="Hello Kitty" class="theme-image floating" onerror="this.onerror=null; this.src='https://via.placeholder.com/200/FFB6C1/FFFFFF?text=🐱'">
-                        </div>
-                        <div class="theme-overlay">
-                            <h3>Hello Kitty</h3>
-                        </div>
-                    </div>
                 </div>
             </div>
 

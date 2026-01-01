@@ -49,9 +49,8 @@ function createConfettiPiece(container, colors, shapes) {
 // Add sparkle effects on hover
 function addSparkleEffects() {
     const giftCards = document.querySelectorAll('.gift-card');
-    const themeItems = document.querySelectorAll('.theme-item');
     
-    [...giftCards, ...themeItems].forEach(item => {
+    giftCards.forEach(item => {
         item.addEventListener('mouseenter', function(e) {
             createSparkles(e.currentTarget);
         });
@@ -97,10 +96,75 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
+// Image Slider functionality
+function initSlider() {
+    const sliderTrack = document.getElementById('sliderTrack');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const indicatorsContainer = document.getElementById('sliderIndicators');
+    const slides = document.querySelectorAll('.slide');
+    
+    if (!sliderTrack || slides.length === 0) return;
+    
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+    
+    // Create indicators
+    slides.forEach((_, index) => {
+        const indicator = document.createElement('div');
+        indicator.className = 'indicator';
+        if (index === 0) indicator.classList.add('active');
+        indicator.addEventListener('click', () => goToSlide(index));
+        indicatorsContainer.appendChild(indicator);
+    });
+    
+    function updateSlider() {
+        sliderTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+        
+        // Update indicators
+        const indicators = indicatorsContainer.querySelectorAll('.indicator');
+        indicators.forEach((ind, index) => {
+            if (index === currentSlide) {
+                ind.classList.add('active');
+            } else {
+                ind.classList.remove('active');
+            }
+        });
+    }
+    
+    function goToSlide(index) {
+        currentSlide = index;
+        updateSlider();
+    }
+    
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateSlider();
+    }
+    
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateSlider();
+    }
+    
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+    
+    // Auto-play (optional - uncomment if you want auto-sliding)
+    // setInterval(nextSlide, 5000);
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') prevSlide();
+        if (e.key === 'ArrowRight') nextSlide();
+    });
+}
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
     createConfetti();
     addSparkleEffects();
+    initSlider();
     
     // Add click effects to gift cards
     const giftCards = document.querySelectorAll('.gift-card');
