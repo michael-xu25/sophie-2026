@@ -69,10 +69,15 @@ body {
 }
 
 .hello-kitty {
-    font-size: 4rem;
     margin-bottom: 1rem;
-    animation: bounce 2s infinite;
     display: inline-block;
+}
+
+.hello-kitty-img {
+    width: 120px;
+    height: auto;
+    animation: bounce 2s infinite;
+    filter: drop-shadow(0 5px 15px rgba(255, 105, 180, 0.3));
 }
 
 @keyframes bounce {
@@ -129,6 +134,94 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+.section-title {
+    font-family: 'Comfortaa', cursive;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--pink-dark);
+    text-align: center;
+    margin: 3rem 0 2rem;
+    text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.2);
+}
+
+/* Photo Gallery Styles */
+.photo-gallery-section {
+    margin: 4rem 0;
+}
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.photo-item {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 1;
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 3px solid var(--pink-light);
+    background: var(--white);
+}
+
+.photo-item:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(255, 105, 180, 0.4);
+}
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.photo-item:hover .gallery-img {
+    transform: scale(1.1);
+}
+
+.photo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 0%, rgba(255, 105, 180, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.photo-item:hover .photo-overlay {
+    opacity: 1;
+}
+
+.photo-item.placeholder {
+    background: linear-gradient(135deg, var(--pink-lighter), var(--white));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.placeholder-content {
+    text-align: center;
+    color: var(--pink-dark);
+}
+
+.placeholder-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 0.5rem;
+    opacity: 0.5;
+}
+
+.placeholder-content p {
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 .gift-section {
@@ -203,55 +296,122 @@ body {
     font-weight: 300;
 }
 
+/* Creative Theme Section with Floating Images */
 .theme-section {
     margin: 4rem 0;
+    position: relative;
 }
 
-.theme-grid {
+.theme-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    position: relative;
 }
 
-.theme-item {
-    text-align: center;
-    padding: 1.5rem;
-    background: var(--white);
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.15);
-    transition: all 0.3s ease;
-    border: 2px solid var(--pink-light);
+.theme-card {
+    position: relative;
+    height: 300px;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(255, 105, 180, 0.25);
+    transition: all 0.4s ease;
+    background: linear-gradient(135deg, var(--white), var(--pink-lighter));
+    border: 3px solid var(--pink-light);
 }
 
-.theme-item:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.3);
-    background: linear-gradient(135deg, var(--pink-lighter), var(--white));
+.theme-card:hover {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 20px 50px rgba(255, 105, 180, 0.4);
 }
 
-.theme-icon {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
-    animation: wiggle 2s ease-in-out infinite;
+.theme-image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    z-index: 1;
 }
 
-@keyframes wiggle {
+.theme-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+    transition: transform 0.4s ease;
+}
+
+.theme-image.floating {
+    animation: floatTheme 4s ease-in-out infinite;
+}
+
+@keyframes floatTheme {
     0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    33% {
+        transform: translateY(-20px) rotate(2deg);
+    }
+    66% {
+        transform: translateY(-10px) rotate(-2deg);
+    }
+}
+
+.theme-card:hover .theme-image {
+    transform: scale(1.15) rotate(5deg);
+}
+
+.theme-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(255, 105, 180, 0.9), rgba(255, 105, 180, 0.7), transparent);
+    padding: 2rem 1.5rem 1.5rem;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+    z-index: 2;
+}
+
+.theme-card:hover .theme-overlay {
+    transform: translateY(0);
+}
+
+.theme-overlay h3 {
+    font-family: 'Comfortaa', cursive;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Decorative floating elements */
+.theme-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 182, 193, 0.2) 0%, transparent 70%);
+    animation: rotate 8s linear infinite;
+    z-index: 0;
+}
+
+@keyframes rotate {
+    0% {
         transform: rotate(0deg);
     }
-    25% {
-        transform: rotate(-5deg);
+    100% {
+        transform: rotate(360deg);
     }
-    75% {
-        transform: rotate(5deg);
-    }
-}
-
-.theme-item p {
-    color: var(--pink-dark);
-    font-weight: 600;
-    font-size: 1rem;
 }
 
 .message-section {
@@ -389,6 +549,10 @@ body {
         font-size: 1.5rem;
     }
     
+    .section-title {
+        font-size: 2rem;
+    }
+    
     .year-number {
         font-size: 4rem;
     }
@@ -401,7 +565,15 @@ body {
         padding: 2rem;
     }
     
-    .theme-grid {
+    .theme-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .theme-card {
+        height: 250px;
+    }
+    
+    .photo-gallery {
         grid-template-columns: repeat(2, 1fr);
     }
 }
@@ -415,12 +587,23 @@ body {
         font-size: 2rem;
     }
     
+    .hello-kitty-img {
+        width: 80px;
+    }
+    
     .year-number {
         font-size: 3rem;
     }
     
-    .theme-grid {
+    .theme-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .theme-card {
+        height: 220px;
+    }
+    
+    .photo-gallery {
         grid-template-columns: 1fr;
     }
 }
-
